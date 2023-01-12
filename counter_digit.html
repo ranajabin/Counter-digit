@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        counter
+    </title>
+    <style>
+        .container {
+            margin-top: 200px;
+        }
+
+        h2 {
+            text-align: center;
+            color: blue;
+            font-size: 100px;
+        }
+
+        .btn-1 {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        p {
+            text-align: center;
+            color: rgba(255, 0, 0, 0.151);
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Counter</h2>
+        <!-- <span id = "value"> 0 </span>  -->
+        <p id="value">0</p>
+
+        <div class="btn-1">
+            <button class="btn increase" value="Increase">Increase</button>
+            <button class="btn reset" value="Reset">Reset</button>
+            <button class="btn decrease" value="Decrease">Decrease</button>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+
+        const value = document.querySelector("#value");
+        const btns = document.querySelectorAll(".btn");
+
+        btns.forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+                const styles = e.currentTarget.classList;
+                if (styles.contains("decrease")) {
+                    count--;
+                } else if (styles.contains("increase")) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                value.textContent = count;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
